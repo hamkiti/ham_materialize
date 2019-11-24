@@ -13,23 +13,21 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ham_materialize' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'ham_materialize' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'ham_materialize' ), 'ham_materialize', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
 </div><!-- #page -->
-
+<footer class="site-footer">
+	<div class="container" id="footer">
+		<div class="row col s12">
+			<div class="row">
+				<div class="col m8 s12 site-info">
+					
+				</div><!-- .site-info -->
+				<div class="col m4 s12 site-info" style="text-align:right">
+					(C) <?php the_time('Y'); ?> <?php bloginfo( 'name' ); ?>
+				</div><!-- .site-info -->
+			</div>
+		</div>
+	</div>
+</footer><!-- #colophon -->
 <?php wp_footer(); ?>
 
 </body>

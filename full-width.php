@@ -1,8 +1,7 @@
 <?php
 /**
- * The template for displaying all single posts
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * Template Name: Full Width SideBar
  *
  * @package ham_materialize
  */
@@ -10,7 +9,7 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area col l9 m12 s12" data-tmpl="<?php echo basename(__FILE__, '.php');?>">
+	<div id="primary" class="content-area col l12 m12 s12" data-tmpl="<?php echo basename(__FILE__, '.php');?>">
 
 		<?php
 		while ( have_posts() ) :
@@ -31,5 +30,4 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

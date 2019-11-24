@@ -120,11 +120,14 @@ add_action( 'widgets_init', 'ham_materialize_widgets_init' );
  * Enqueue scripts and styles.
  */
 function ham_materialize_scripts() {
+	wp_enqueue_script( 'ham_materialize-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '20191124', true );
+	wp_enqueue_style( 'ham_materialize-lib-style-font', 'https://fonts.googleapis.com/icon?family=Material+Icons');
+	wp_enqueue_style( 'ham_materialize-lib-style', get_template_directory_uri() .'/lib/materialize/css/materialize.min.css');
+	wp_enqueue_script( 'ham_materialize-lib-script', get_template_directory_uri() . '/lib/materialize/js/materialize.min.js', array(), '20191124', true );
+	
 	wp_enqueue_style( 'ham_materialize-style', get_stylesheet_uri() );
+	wp_enqueue_script( 'ham_materialize-navigation', get_template_directory_uri() . '/js/common.js', array(), '20191124', true );
 
-	wp_enqueue_script( 'ham_materialize-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'ham_materialize-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
