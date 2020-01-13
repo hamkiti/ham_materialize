@@ -120,13 +120,13 @@ add_action( 'widgets_init', 'ham_materialize_widgets_init' );
  * Enqueue scripts and styles.
  */
 function ham_materialize_scripts() {
-	wp_enqueue_script( 'ham_materialize-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '20191124', true );
+	wp_enqueue_script( 'ham_materialize-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '20191222b', true );
 	wp_enqueue_style( 'ham_materialize-lib-style-font', 'https://fonts.googleapis.com/icon?family=Material+Icons');
 	wp_enqueue_style( 'ham_materialize-lib-style', get_template_directory_uri() .'/lib/materialize/css/materialize.min.css');
-	wp_enqueue_script( 'ham_materialize-lib-script', get_template_directory_uri() . '/lib/materialize/js/materialize.min.js', array(), '20191124', true );
+	wp_enqueue_script( 'ham_materialize-lib-script', get_template_directory_uri() . '/lib/materialize/js/materialize.min.js', array(), '20191222b', true );
 	
-	wp_enqueue_style( 'ham_materialize-style', get_stylesheet_uri() );
-	wp_enqueue_script( 'ham_materialize-navigation', get_template_directory_uri() . '/js/common.js', array(), '20191124', true );
+	wp_enqueue_style( 'ham_materialize-style', get_stylesheet_uri() .'?v=20191222b');
+	wp_enqueue_script( 'ham_materialize-navigation', get_template_directory_uri() . '/js/common.js', array(), '20191222b', true );
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -134,6 +134,25 @@ function ham_materialize_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'ham_materialize_scripts' );
+
+
+
+function get_thumb_img($size = 'full') {
+  $thumb_id = get_post_thumbnail_id();                         // アイキャッチ画像のIDを取得
+  $thumb_img = wp_get_attachment_image_src($thumb_id, $size);  // $sizeサイズの画像内容を取得
+  $thumb_src = $thumb_img[0];    // 画像のurlだけ取得
+  $thumb_alt = get_the_title();  //alt属性に入れるもの（記事のタイトルにしています）
+  return '<img src="'.$thumb_src.'" alt="'.$thumb_alt.'">';
+}
+
+//ショートコード登録
+function func_theme_dir_uri() {
+    return get_stylesheet_directory_uri();
+}
+add_shortcode('themediruri', 'func_theme_dir_uri');
+
+
+
 
 /**
  * Implement the Custom Header feature.

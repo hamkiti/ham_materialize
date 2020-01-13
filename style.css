@@ -3,7 +3,7 @@ Theme Name: ham_materialize
 Theme URI: 
 Author: hamkiti
 Description: Description
-Version: 1.0.0
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: ham_materialize
@@ -44,6 +44,47 @@ article{
 article header h1{
 	margin:0;
 }
+
+.post-navigation {
+	margin-top: 3em;
+	line-height:1;
+	height: 36px;
+	padding:0 1em 0 1em;
+	box-shadow: none;
+	background-color: #3e7d48;
+	color: #FFF;
+	border-radius: 30px;
+}
+.post-navigation i.material-icons {
+	height: auto;
+	width: auto;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+}
+.post-navigation a{
+	color:#FFFFFF;
+}
+.post-navigation .screen-reader-text{
+    display:none;
+}
+.post-navigation .nav-links {
+  padding: .5em 0;
+}
+.post-navigation .nav-links:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.post-navigation .nav-previous {
+  float: left;
+}
+
+.post-navigation .nav-next {
+  float: right;
+}
+
+
 footer.site-footer{
 	margin-top:20px;
 	min-height:60px;

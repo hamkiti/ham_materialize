@@ -17,7 +17,7 @@
 		<div class="entry-meta">
 			<?php
 			ham_materialize_posted_on();
-			ham_materialize_posted_by();
+			//ham_materialize_posted_by();
 			?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>

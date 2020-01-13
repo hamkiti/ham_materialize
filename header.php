@@ -9,6 +9,11 @@
  * @package ham_materialize
  */
 
+$logo_image_link = get_custom_logo();
+
+
+
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -21,40 +26,62 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
 
 	<header id="masthead" class="site-header">
-	
-
+		<div class="ornament_right ballon_taba1">
+			<div class="ballon_taba2"></div>
+		</div>
+		<div class="ornament_left ballon_taba1">
+			<div class="ballon_taba3"></div>
+		</div>
+		<div class="brand-logo">
+  		<?php if ($logo_image_link) { ?>
+			<?php echo $logo_image_link;?>
+		<?php } else { ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+		<?php } ?>
+		</div>
+		
 	<nav>
 		<div class="nav-wrapper">
-		<div class="brand-logo">
-		<?php the_custom_logo();?>
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-		
-		</div>
+			
 		
 <?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
 				'menu_id'        => 'primary-menu',
-				'items_wrap'     => '<ul id="%1$s" class="right hide-on-med-and-down">%3$s</ul>',
+				'items_wrap'     => '<ul id="%1$s" class="hide-on-med-and-down">%3$s</ul>',
+				'walker' => new Ham_Walker_Nav_Menu('dropdown')
 			) );
 ?>
-			<div class="right "><a href="#" data-target="primary-menu-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+			<div class="right ">
+			<a href="#" data-target="mobile-side-manu" class="sidenav-trigger right sidenav-trigger-btn">
+				<span class="sidenav_closed">
+					<i class="material-icons">menu</i>
+				</span>
+
+			</a>
 </div>
 		</div>
 	</nav>
 
+
+	</header><!-- #masthead -->
+<div id="mobile-side-manu" class="right sidenav">
+	<h2><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h2>
 <?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
 				'menu_id'        => 'primary-menu-mobile',
-				'items_wrap'      => '<ul id="%1$s" class="right sidenav">%3$s</ul>',
+				'items_wrap'      => '<ul id="%1$s">%3$s</ul>',
+				'walker' => new Ham_Walker_Nav_Menu()
 			) );
 ?>		
+ <a class="sidenav-close-btn" href="#sidenav_close"><span>×閉じる</span></a>
+</div>
+<div id="page" class="site">
 
-	</header><!-- #masthead -->
+
 
 
 
