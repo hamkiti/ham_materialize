@@ -34,18 +34,19 @@ $logo_image_link = get_custom_logo();
 		<div class="ornament_left ballon_taba1">
 			<div class="ballon_taba3"></div>
 		</div>
-		<div class="brand-logo">
-  		<?php if ($logo_image_link) { ?>
-			<?php echo $logo_image_link;?>
-		<?php } else { ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-		<?php } ?>
-		</div>
-		
+
+
 	<nav>
 		<div class="nav-wrapper">
-			
-		
+
+			<div class="brand-logo">
+	  		<?php if ($logo_image_link) { ?>
+				<?php echo $logo_image_link;?>
+			<?php } else { ?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+			<?php } ?>
+			</div>
+			<div class="right">
 <?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
@@ -54,6 +55,7 @@ $logo_image_link = get_custom_logo();
 				'walker' => new Ham_Walker_Nav_Menu('dropdown')
 			) );
 ?>
+</div>
 			<div class="right ">
 			<a href="#" data-target="mobile-side-manu" class="sidenav-trigger right sidenav-trigger-btn">
 				<span class="sidenav_closed">
@@ -76,7 +78,7 @@ $logo_image_link = get_custom_logo();
 				'items_wrap'      => '<ul id="%1$s">%3$s</ul>',
 				'walker' => new Ham_Walker_Nav_Menu()
 			) );
-?>		
+?>
  <a class="sidenav-close-btn" href="#sidenav_close"><span>×閉じる</span></a>
 </div>
 <div id="page" class="site">
